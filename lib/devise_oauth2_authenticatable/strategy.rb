@@ -39,9 +39,9 @@ module Devise #:nodoc:
             # NOTE: Facebook Graph Specific
             # TODO: break this out into separate model or class to handle 
             # different oauth2 providers
-            oauth2_user_attributes = JSON.parse(access_token.get('/me')) 
+            oauth2_user_attributes = JSON.parse(access_token.get('/api/v2/json/user/show')) 
       
-            user = klass.authenticate_with_oauth2(oauth2_user_attributes['id'], access_token.token)
+            user = klass.authenticate_with_oauth2(oauth2_user_attributes['user']['id'], access_token.token)
 
 
 
@@ -56,7 +56,7 @@ module Devise #:nodoc:
                 user = returning(klass.new) do |u|
                   u.store_oauth2_credentials!(
                       :token => access_token.token,
-                      :uid => oauth2_user_attributes['id']
+                      :uid => oauth2_user_attributes['user']['id']
                     )
                   u.on_before_oauth2_auto_create(oauth2_user_attributes)
                 end
