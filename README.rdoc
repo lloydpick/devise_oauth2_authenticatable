@@ -14,7 +14,7 @@ Create the Rails app:
 Add the following lines to your Gemfile:
   gem "oauth2"
   gem "devise", :git => "git://github.com/plataformatec/devise.git"
-  gem "devise_oauth2_authenticatable", :git => "git://github.com/jerryluk/devise_oauth2_authenticatable.git"
+  gem "devise_oauth2_authenticatable", :git => "git://github.com/lloydpick/devise_oauth2_authenticatable.git"
   
 Run the following commands:
   bundle install
