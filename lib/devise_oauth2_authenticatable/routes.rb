@@ -2,8 +2,8 @@ ActionDispatch::Routing::Mapper.class_eval do
   protected
   
   def devise_oauth2(mapping, controllers)
-    scope mapping.full_path do
-      get mapping.path_names[:oauth2],  :to => "#{controllers[:sessions]}#create", :as => :"oauth2_#{mapping.name}_session"
+    scope :controller => controllers[:sessions], :as => :session do
+      get  :create,  :path => mapping.path_names[:oauth2], :as => "oauth2"
     end
   end
 end
