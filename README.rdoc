@@ -1,11 +1,13 @@
 = devise_oauth2_authenticatable
 
-== This fork works with Devise 1.1 + Rails 3
+== This fork works with Devise (git master) + Rails 3 (git master)
+
+I have created an example app, which can be found at http://github.com/lloydpick/rails3_github_oauth2_devise_example
 
 
-==Quick tutorial for Devise 1.1 + Rails 3 + devise_oauth2_authenticatable
+==Quick tutorial for Devise (git master) + Rails 3 (git master) + devise_oauth2_authenticatable
 
-Set up your Facebook app at http://developers.facebook.com/setup/
+Set up your app with your OAuth2 provider
 
 Create the Rails app:
   rails new YOUR_APP
@@ -53,7 +55,7 @@ Add the sign in/sign out links to your applications.html.erb:
   <% if user_signed_in? %>
     <%= link_to "Sign out", destroy_user_session_path %>
   <% else %>
-    <%= link_to_oauth2 "Sign In with Facebook" %>
+    <%= link_to_oauth2 "Sign In with OAuth2" %>
   <% end %>
 
 The usual stuffs:
@@ -67,10 +69,13 @@ Navigate your browser to http://localhost:3000, there are many things to fix but
 ==
 This is the basic framework for an OAuth2 gem for Devise. 
 
-It currently works with FacebookGraph, to get started begin by registering a new application at
+It currently works with FacebookGraph and GitHub, to get started begin by registering a new application at
 
   http://developers.facebook.com/setup/
-  
+
+or
+
+  http://github.com/account/applications/new
   
 A generator is provided for creating your oauth yml file
 
